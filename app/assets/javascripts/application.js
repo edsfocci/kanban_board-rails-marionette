@@ -25,12 +25,6 @@
 //= require_tree ./apps
 
 $(document).ready(function() {
-  KanbanBoard.start();
 
-  $('.card-stack').sortable({
-    cursor: 'grabbing',
-    connectWith: '.card-stack',
-    placeholder: 'card-placeholder',
-    tolerance: 'pointer'
-  });
+  KanbanBoard.start();
 });

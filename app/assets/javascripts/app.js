@@ -9,7 +9,7 @@ KanbanBoard.RootView = Mn.LayoutView.extend({
   el: 'body',
 
   regions: {
-    leftStack: '#left-stack',
+    mainRegion: '#main-region',
     dialogRegion: '#dialog-region'
   }
 });

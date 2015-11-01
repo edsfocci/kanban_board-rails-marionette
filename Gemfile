@@ -16,8 +16,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# Official Sass port of Bootstrap 2 and 3
-gem 'bootstrap-sass', '~> 3.3.5'
 # jQuery UI for the Rails asset pipeline
 gem 'jquery-ui-rails'
 # lodash for the Rails asset pipeline

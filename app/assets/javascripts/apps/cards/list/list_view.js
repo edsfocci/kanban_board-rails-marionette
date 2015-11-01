@@ -4,16 +4,28 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
     template: '#card-list-item',
     className: 'card',
 
-    events: {
-      'click js-card-edit': 'editClicked'
-    },
-
-    editClicked: function(e) {
-      this.trigger('card:edit', this.model);
+    triggers: {
+      'click .js-card-edit': 'card:edit'
     }
   });
 
-  List.Cards = Mn.CollectionView.extend({
-    childView: List.Card
+  List.Cards = Mn.CompositeView.extend({
+    className: 'col-sm-4 board-section',
+    template: '#card-list',
+    childView: List.Card,
+    childViewContainer: '.card-stack',
+
+    triggers: {
+      'click .js-card-new': 'card:new'
+    },
+
+    onShow: function() {
+      $('.card-stack').sortable({
+        cursor: 'grabbing',
+        connectWith: '.card-stack',
+        placeholder: 'card-placeholder',
+        tolerance: 'pointer'
+      });
+    }
   });
 });

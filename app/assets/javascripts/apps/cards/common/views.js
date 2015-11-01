@@ -4,7 +4,7 @@ function(Views, KanbanBoard, Backbone, Mn, $, _) {
     template: '#card-form',
 
     events: {
-      'click js-card-submit': 'submitClicked'
+      'click .js-card-submit': 'submitClicked'
     },
 
     submitClicked: function(e) {
@@ -28,7 +28,7 @@ function(Views, KanbanBoard, Backbone, Mn, $, _) {
         $view.find('.help-block').each(function() { this.remove(); });
 
         var controlGroupHasError = $view.find('.control-group.has-error');
-        for (var i = 0; i < controlGroupHasError.length, i++)
+        for (var i = 0; i < controlGroupHasError.length; i++)
           controlGroupHasError[i].removeClass('has-error');
       };
 
