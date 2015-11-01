@@ -18,7 +18,6 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           });
 
           cardNewView.on('form:submit', function(data) {
-            console.log(cards);
             if (newCard.save(data)) {
               cards.add(newCard);
               KanbanBoard.rootView.dialogRegion.empty();

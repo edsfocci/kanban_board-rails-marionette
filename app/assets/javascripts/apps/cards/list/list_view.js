@@ -4,8 +4,12 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
     template: '#card-list-item',
     className: 'card',
 
-    triggers: {
-      'click .js-card-edit': 'card:edit'
+    events: {
+      'click .js-card-edit': 'editClicked'
+    },
+
+    editClicked: function() {
+      this.trigger('card:edit', this.model);
     }
   });
 
