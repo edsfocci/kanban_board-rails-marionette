@@ -17,6 +17,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 html, body {
   height: 100%;
 }
@@ -46,6 +49,21 @@ body {
 
 #kanban, #kanban .row, #todo, #doing, #done {
   height: 100%;
+}
+
+.js-card-add {
+  position: absolute;
+  top: 15px;
+  left: calc(100% - 50px);
+  padding-left: 2px;
+  width: 30px;
+  height: 30px;
+  background: #ff8888;
+  color: white;
+  font-size: 30px;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .title {
@@ -81,7 +99,6 @@ body {
 .card {
   height: 100px;
   margin: 5px;
-  background: rgba(255, 255, 255, 0.7);
   border: 1px solid white;
   cursor: grab;
 }
@@ -92,44 +109,47 @@ body {
   border: 2px dashed black;
 }
 
-.card .data, .card .cd-panel {
+.card .data, .card .card-panel {
   display: inline-block;
 }
 
 .card .data {
-  width: 80%;
+  width: calc(100% - 50px);
+  height: 100%;
+  overflow: auto;
   padding: 6px 9px;
   font-size: 16px;
   line-height: 1.25;
+  background: rgba(255, 255, 255, 0.7);
 }
 
-.card .cd-panel {
+.card .card-panel {
   float: right;
   width: 50px;
   border-left: 1px solid white;
 }
 
-.card .cd-panel > div {
+.card .card-panel > div {
   height: 49px;
-  background: #ff8888;
+  /*background: #ff8888;*/
 }
 
-.card .cd-panel > div:first-child {
+.card .card-panel > div:first-child {
   border-bottom: 1px solid white;
 }
 
-.card .cd-panel div:nth-child(2) {
+.card .card-panel div:nth-child(2) {
   font-size: 25px;
   cursor: pointer;
 }
 
-.card .cd-panel > div > div {
+.card .card-panel > div > div {
   width: 35px;
   height: 35px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
 }
 
-.card .cd-panel > div > div > span {
+.card .card-panel > div > div > span {
   margin-top: 6px;
 }

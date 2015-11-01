@@ -20,11 +20,12 @@
 <div id="kanban" class="container-fluid">
   <div class="row">
     <div id="todo" class="col-sm-4">
+      <div class="fa fa-plus js-card-add"></div>
       <div class="title">
         <h1 class="text-center">To Do</h1>
       </div>
 
-      <div id="left-stack"></div>
+      <div id="left-stack" class="card-stack"></div>
       <!--div class="card-stack">
       </div-->
     </div>
@@ -44,7 +45,7 @@
               Lorem ipsum
             </div>
           </div>
-          <div class="cd-panel">
+          <div class="card-panel">
             <div>
               <div class="vertical-center">
               </div>
@@ -77,3 +78,38 @@
 </div>
 
 <div id="dialog-region"></div>
+
+<script id="card-list-item" type="text/template">
+  <div class="data text-justify">
+    <div class="text">
+      {{= title }}
+    </div>
+    <div class="tags">
+      Lorem ipsum
+    </div>
+  </div>
+  <div class="card-panel">
+    <div>
+      <div class="vertical-center">
+      </div>
+    </div>
+    <div>
+      <div class="text-center vertical-center js-card-edit">
+        <span class="fa fa-edit"></span>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="card-form" type="text/template">
+  <form>
+    <div class="control-group">
+      <label for="card-title" class="control-label">
+        Title:</label>
+      <input id="card-title" name="title" type="text"
+        value="{{= title }}" class="form-control" />
+    </div>
+
+    <button class="btn js-card-submit">Save</button>
+  </form>
+</script>

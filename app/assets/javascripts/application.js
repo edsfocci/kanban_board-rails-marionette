@@ -18,6 +18,7 @@
 //= require lodash
 //= require backbone
 //= require backbone.marionette
+//= require backbone.syphon
 
 //= require app
 //= require_tree ./entities
@@ -26,18 +27,10 @@
 $(document).ready(function() {
   KanbanBoard.start();
 
-  function rerender() {
-    $('.card .data').width($('.card').width() - 71);
-  }
-
   $('.card-stack').sortable({
     cursor: 'grabbing',
     connectWith: '.card-stack',
     placeholder: 'card-placeholder',
     tolerance: 'pointer'
   });
-
-  $(window).resize(function() { rerender(); });
-
-  rerender();
 });

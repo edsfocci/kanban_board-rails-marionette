@@ -20,6 +20,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 # jQuery UI for the Rails asset pipeline
 gem 'jquery-ui-rails'
+# lodash for the Rails asset pipeline
+gem 'lodash-rails'
+# Font-Awesome Sass gem for use in Ruby/Rails projects
+gem 'font-awesome-sass', '~> 4.4.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

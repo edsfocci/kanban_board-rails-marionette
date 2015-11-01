@@ -1,3 +1,8 @@
+_.templateSettings = {
+    interpolate: /\{\{\=(.+?)\}\}/g,
+    evaluate: /\{\{(.+?)\}\}/g
+};
+
 var KanbanBoard = new Mn.Application();
 
 KanbanBoard.RootView = Mn.LayoutView.extend({
@@ -11,4 +16,6 @@ KanbanBoard.RootView = Mn.LayoutView.extend({
 
 KanbanBoard.on('start', function() {
   KanbanBoard.rootView = new KanbanBoard.RootView();
+
+  KanbanBoard.CardsApp.List.Controller.listCards();
 });
