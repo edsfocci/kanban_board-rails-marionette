@@ -10,13 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require json2
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/sortable
 //= require jquery-ui/dialog
-//= require_tree .
+//= require lodash
+//= require backbone
+//= require backbone.marionette
+
+//= require app
+//= require_tree ./entities
+//= require_tree ./apps
 
 $(document).ready(function() {
+  KanbanBoard.start();
+
   function rerender() {
     $('.card .data').width($('.card').width() - 71);
   }

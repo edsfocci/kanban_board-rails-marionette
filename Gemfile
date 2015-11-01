@@ -46,4 +46,3 @@ group :development do
 
   gem 'rails_12factor'
 end
-
