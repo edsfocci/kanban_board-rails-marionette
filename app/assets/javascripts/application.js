@@ -12,4 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/sortable
+//= require jquery-ui/dialog
 //= require_tree .
+
+$(document).ready(function() {
+  function rerender() {
+    $('.card .data').width($('.card').width() - 71);
+  }
+
+  $('.card-stack').sortable({
+    cursor: 'grabbing',
+    connectWith: '.card-stack',
+    placeholder: 'card-placeholder',
+    tolerance: 'pointer'
+  });
+
+  $(window).resize(function() { rerender(); });
+
+  rerender();
+});

@@ -1,6 +1,76 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Kanban</a>
+    </div>
 
-<p>
-  <strong>Card order:</strong>
-  <%= @board.card_order %>
-</p>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div id="kanban" class="container-fluid">
+  <div class="row">
+    <div id="todo" class="col-sm-4">
+      <div class="title">
+        <h1 class="text-center">To Do</h1>
+      </div>
+
+      <div class="card-stack">
+        <div class="card">
+          <div class="data text-justify">
+            <div class="text">
+              Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+            </div>
+            <div class="tags">
+              Lorem ipsum
+            </div>
+          </div>
+          <div class="cd-panel">
+            <div>
+              <div class="vertical-center">
+              </div>
+            </div>
+            <div>
+              <div class="text-center vertical-center">
+                <span class="fa fa-edit"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          1
+        </div>
+      </div>
+    </div>
+
+    <div id="doing" class="col-sm-4">
+      <div class="title">
+        <h1 class="text-center">Doing</h1>
+      </div>
+
+      <div class="card-stack">
+        <div class="card">
+          1
+        </div>
+      </div>
+    </div>
+
+    <div id="done" class="col-sm-4">
+      <div class="title">
+        <h1 class="text-center">Done</h1>
+      </div>
+
+      <div class="card-stack">
+      </div>
+    </div>
+  </div>
+</div>
