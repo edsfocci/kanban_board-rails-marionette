@@ -42,15 +42,14 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           this.reorderData = {};
           this.reorderData.origin = {};
 
+          this.reorderData.cardId = $(ui.item).data('id');
+
           this.reorderData.origin.section =
             $(ui.item).closest('.board-section').find('h1.text-center').html();
 
-          var id = $(ui.item).data('id');
-          this.reorderData.origin.cardId = id;
-
           this.reorderData.origin.cardPos = $(this)
             .sortable('toArray', { attribute: 'data-id' })
-            .indexOf(id.toString());
+            .indexOf(this.reorderData.cardId.toString());
         },
 
         update: function(e, ui) {
@@ -59,12 +58,9 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           this.reorderData.dest.section =
             $(ui.item).closest('.board-section').find('h1.text-center').html();
 
-          var id = $(ui.item).data('id');
-          this.reorderData.dest.cardId = id;
-
           this.reorderData.dest.cardPos = $(this)
             .sortable('toArray', { attribute: 'data-id' })
-            .indexOf(id.toString());
+            .indexOf(this.reorderData.cardId.toString());
 
           self.trigger('card:reorder', this.reorderData);
         }

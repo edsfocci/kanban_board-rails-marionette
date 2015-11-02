@@ -29,7 +29,7 @@ function(Views, KanbanBoard, Backbone, Mn, $, _) {
 
         var controlGroupHasError = $view.find('.control-group.has-error');
         for (var i = 0; i < controlGroupHasError.length; i++)
-          controlGroupHasError[i].removeClass('has-error');
+          $(controlGroupHasError[i]).removeClass('has-error');
       };
 
       var markErrors = function(value, key) {

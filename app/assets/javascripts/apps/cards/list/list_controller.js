@@ -18,7 +18,9 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           });
 
           cardNewView.on('form:submit', function(data) {
+            data.title = data.title.trim();
             data.board_id = board.id;
+
             if (newCard.save(data)) {
               cards.add(newCard);
               KanbanBoard.rootView.dialogRegion.empty();
@@ -36,6 +38,8 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           });
 
           cardEditView.on('form:submit', function(data) {
+            data.title = data.title.trim();
+
             if (model.save(data)) {
               childView.render();
               KanbanBoard.rootView.dialogRegion.empty();
