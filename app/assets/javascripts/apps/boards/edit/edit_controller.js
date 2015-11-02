@@ -8,14 +8,13 @@ function(Edit, KanbanBoard, Backbone, Mn, $, _) {
       $.when(boardPromise).done(function(board) {
         var movedCardId = reorderData.cardId;
         var cardOrder = board.get('card_order');
-        var sections = ['To Do', 'Doing', 'Done'];
 
-        var originSection = sections.indexOf(reorderData.origin.section);
+        var originSection = reorderData.origin.section;
 
         var originPos = reorderData.origin.cardPos;
         cardOrder[originSection].splice(originPos, 1);
 
-        var destSection = sections.indexOf(reorderData.dest.section);
+        var destSection = reorderData.dest.section;
 
         var destPos = reorderData.dest.cardPos;
         cardOrder[destSection].splice(destPos, 0, movedCardId);

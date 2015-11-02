@@ -20,7 +20,6 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
   });
 
   List.Cards = Mn.CompositeView.extend({
-    className: 'col-sm-4 board-section',
     template: '#card-list',
     childView: List.Card,
     childViewContainer: '.card-stack',
@@ -39,30 +38,34 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
         tolerance: 'pointer',
 
         activate: function(e, ui) {
-          this.reorderData = {};
-          this.reorderData.origin = {};
+          ui.item.reorderData = {};
+          ui.item.reorderData.origin = {};
 
-          this.reorderData.cardId = $(ui.item).data('id');
+          ui.item.reorderData.cardId = $(ui.item).data('id');
 
-          this.reorderData.origin.section =
-            $(ui.item).closest('.board-section').find('h1.text-center').html();
+          // this.reorderData.origin.section =
+          //   $(ui.item).closest('.board-section').find('h1.text-center').html();
+          ui.item.reorderData.origin.section =
+            $(ui.item).closest('.board-section').data('id');
 
-          this.reorderData.origin.cardPos = $(this)
+          ui.item.reorderData.origin.cardPos = $(this)
             .sortable('toArray', { attribute: 'data-id' })
-            .indexOf(this.reorderData.cardId.toString());
+            .indexOf(ui.item.reorderData.cardId.toString());
         },
 
         update: function(e, ui) {
-          this.reorderData.dest = {};
+          ui.item.reorderData.dest = {};
 
-          this.reorderData.dest.section =
-            $(ui.item).closest('.board-section').find('h1.text-center').html();
+          // this.reorderData.dest.section =
+          //   $(ui.item).closest('.board-section').find('h1.text-center').html();
+          ui.item.reorderData.dest.section =
+            $(ui.item).closest('.board-section').data('id');
 
-          this.reorderData.dest.cardPos = $(this)
+          ui.item.reorderData.dest.cardPos = $(this)
             .sortable('toArray', { attribute: 'data-id' })
-            .indexOf(this.reorderData.cardId.toString());
+            .indexOf(ui.item.reorderData.cardId.toString());
 
-          self.trigger('card:reorder', this.reorderData);
+          self.trigger('card:reorder', ui.item.reorderData);
         }
       });
     },

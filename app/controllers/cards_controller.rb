@@ -5,9 +5,20 @@ class CardsController < ApplicationController
   # GET /cards.json
   def index
     # @cards = Card.where(board_id: params[:board_id])
-    @cards = Board.find(params[:board_id]).card_order[0].map do |el|
+
+    section = params[:section_id].to_i
+    @cards = \
+    Board.find(params[:board_id]).card_order[section].map do |el|
       Card.find(el)
     end
+
+    # @cards = Board.find(params[:board_id]).card_order.map do |arry|
+    #   arry.map! do |el|
+    #     Card.find(el)
+    #   end
+
+    #   return arry
+    # end
   end
 
   # GET /cards/1

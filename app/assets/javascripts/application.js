@@ -23,6 +23,7 @@
 //= require app
 //= require_tree ./entities
 //= require_tree ./apps/cards
+//= require_tree ./apps/sections
 //= require_tree ./apps/boards
 
 $(document).ready(function() {

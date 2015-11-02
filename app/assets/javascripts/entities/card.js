@@ -23,21 +23,22 @@ function(Entities, KanbanBoard, Backbone, Mn, $, _) {
   });
 
   var API = {
-    getCardEntities: function(boardId) {
+    getCardEntities: function(section) {
       var defer = $.Deferred();
 
       (new Entities.CardCollection()).fetch({
-        data: { board_id: boardId },
+        data: {
+          board_id: section.get('board_id'),
+          section_id: section.get('id')
+        },
         success: function(collection) {
           defer.resolve(collection);
+
+          // defer.resolve(collection[sectionId]);
         }
       });
 
       return defer.promise();
-
-      // var cards = new Entities.CardCollection();
-      // cards.fetch();
-      // return cards;
     },
 
     getCardEntity: function(boardId, cardId) {
@@ -45,8 +46,8 @@ function(Entities, KanbanBoard, Backbone, Mn, $, _) {
     }
   };
 
-  KanbanBoard.reqres.setHandler('card:entities', function(boardId) {
-    return API.getCardEntities(boardId);
+  KanbanBoard.reqres.setHandler('card:entities', function(section) {
+    return API.getCardEntities(section);
   });
 
   KanbanBoard.reqres.setHandler('card:entity', function(boardId, id) {

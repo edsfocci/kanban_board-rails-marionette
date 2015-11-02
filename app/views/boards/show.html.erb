@@ -79,14 +79,29 @@
 
 <div id="dialog-region"></div>
 
-<script id="card-list" type="text/template">
-      <div class="fa fa-plus js-card-new"></div>
-      <div class="title">
-        <h1 class="text-center">To Do</h1>
-      </div>
+<!--script id="empty-template" type="text/template"></script-->
 
-      <div class="card-stack"></div>
+<script id="section-list-item" type="text/template">
+  <div class="add-card"></div>
+  <div class="title">
+    <h1 class="text-center">{{= title }}</h1>
+  </div>
+
+  <div class="cards-region"></div>
 </script>
+
+<script id="card-list" type="text/template">
+  <div class="card-stack"></div>
+</script>
+
+<!--script id="card-list" type="text/template">
+  <div class="fa fa-plus js-card-new"></div>
+  <div class="title">
+    <h1 class="text-center">To Do</h1>
+  </div>
+
+  <div class="card-stack"></div>
+</script-->
 
 <script id="card-list-item" type="text/template">
   <div class="data text-justify">
