@@ -1,8 +1,8 @@
 KanbanBoard.module('CardsApp.List',
 function(List, KanbanBoard, Backbone, Mn, $, _) {
   List.Controller = {
-    listCards: function () {
-      var cardsPromise = KanbanBoard.request('card:entities');
+    listCards: function (board) {
+      var cardsPromise = KanbanBoard.request('card:entities', board.id);
 
       $.when(cardsPromise).done(function(cards) {
         var cardsListView = new List.Cards({
@@ -18,6 +18,7 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           });
 
           cardNewView.on('form:submit', function(data) {
+            data.board_id = board.id;
             if (newCard.save(data)) {
               cards.add(newCard);
               KanbanBoard.rootView.dialogRegion.empty();
@@ -43,6 +44,12 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           });
 
           KanbanBoard.rootView.dialogRegion.show(cardEditView);
+        });
+
+        cardsListView.on('card:reorder', function(reorderData) {
+          reorderData.boardId = board.id;
+
+          KanbanBoard.BoardsApp.Edit.Controller.editCardOrder(reorderData);
         });
 
         KanbanBoard.rootView.mainRegion.show(cardsListView);

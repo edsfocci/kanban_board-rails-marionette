@@ -4,7 +4,10 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    # @cards = Card.where(board_id: params[:board_id])
+    @cards = Board.find(params[:board_id]).card_order[0].map do |el|
+      Card.find(el)
+    end
   end
 
   # GET /cards/1
@@ -28,6 +31,10 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
+        @board = Board.find(@card.board_id)
+        @board.card_order[0].unshift(@card.id)
+        @board.save
+
         format.html { redirect_to @card, notice: 'Card was successfully created.' }
         format.json { render :show, status: :created, location: @card }
       else
@@ -69,6 +76,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:title)
+      params.require(:card).permit(:title, :board_id)
     end
 end

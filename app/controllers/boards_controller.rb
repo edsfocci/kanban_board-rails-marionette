@@ -10,7 +10,8 @@ class BoardsController < ApplicationController
   # PATCH/PUT /boards/1.json
   def update
     respond_to do |format|
-      if @board.update(board_params)
+      if @board.update(board_params) && \
+      @board.update(card_order: params[:card_order])
         format.html { redirect_to @board, notice: 'Board was successfully updated.' }
         format.json { render :show, status: :ok, location: @board }
       else
@@ -38,6 +39,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:card_order)
+      params.require(:board).permit({:card_order => []})
     end
 end
