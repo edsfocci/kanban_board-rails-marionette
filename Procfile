@@ -1,1 +1,1 @@
-web: rails s
+web: bundle exec ruby config.ru
