@@ -8,8 +8,8 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
         collection: sections
       });
 
-      sectionsListView.on('childview:card:addview', function() {
-        KanbanBoard.CardsApp.New.Controller.newCardView();
+      sectionsListView.on('childview:card:addview', function(childView, model) {
+        KanbanBoard.CardsApp.New.Controller.newCard(childView, model);
       });
 
       sectionsListView.on('childview:card:list', function(childView, model) {

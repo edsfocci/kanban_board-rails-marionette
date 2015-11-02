@@ -17,6 +17,5 @@ KanbanBoard.RootView = Mn.LayoutView.extend({
 KanbanBoard.on('start', function() {
   KanbanBoard.rootView = new KanbanBoard.RootView();
 
-  // KanbanBoard.CardsApp.List.Controller.listCards();
   KanbanBoard.BoardsApp.Show.Controller.showBoard(1);
 });

@@ -16,10 +16,8 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
     },
 
     onBeforeShow: function() {
-      // this.trigger('card:addview');
+      this.trigger('card:addview', this.model);
       this.trigger('card:list', this.model);
-      // this.addCard.show(cardAddView);
-      // this.cardsRegion.show(cardsListView);
     }
   });
 
