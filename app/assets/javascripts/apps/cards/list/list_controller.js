@@ -10,7 +10,11 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
         });
 
         cardsListView.on('card:new', function() {
-          var newCard = new KanbanBoard.Entities.Card();
+          var sections = ['To Do', 'Doing', 'Done'];
+          var section = sections
+            .indexOf(this.$el.find('h1.text-center').html());
+
+          var newCard = new KanbanBoard.Entities.Card({ section: section });
 
           var cardNewView = new KanbanBoard.CardsApp.New.Card({
             model: newCard,

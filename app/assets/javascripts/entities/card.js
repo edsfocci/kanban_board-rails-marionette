@@ -4,7 +4,8 @@ function(Entities, KanbanBoard, Backbone, Mn, $, _) {
     urlRoot: 'cards',
 
     defaults: {
-      title: ''
+      title: '',
+      section: undefined
     },
 
     validate: function(attrs, options) {

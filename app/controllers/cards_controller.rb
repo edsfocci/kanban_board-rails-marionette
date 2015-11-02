@@ -27,11 +27,12 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /cards.json
   def create
+    @board = Board.find(params[:board_id])
+    puts @board.card_order[params[:section]]
     @card = Card.new(card_params)
 
     respond_to do |format|
       if @card.save
-        @board = Board.find(@card.board_id)
         @board.card_order[0].unshift(@card.id)
         @board.save
 

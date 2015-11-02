@@ -112,6 +112,11 @@
 
 <script id="card-form" type="text/template">
   <form>
+    {{ if (section !== undefined) { }}
+      <input id="card-section" name="section" type="hidden"
+        value="{{= section }}" />
+    {{ } }}
+
     <div class="control-group">
       <label for="card-title" class="control-label">
         Title:</label>
