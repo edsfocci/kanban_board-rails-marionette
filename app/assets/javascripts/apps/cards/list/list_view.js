@@ -70,6 +70,7 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
     onRenderCollection: function() {
       this.attachHtml = function(collectionView, itemView, index) {
         $(this.childViewContainer).prepend(itemView.el);
+        itemView.model.set('item_view', itemView);
       };
     }
   });

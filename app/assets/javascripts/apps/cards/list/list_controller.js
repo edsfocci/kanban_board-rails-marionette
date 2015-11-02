@@ -25,7 +25,11 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
             data.title = data.title.trim();
             data.board_id = board.id;
 
-            if (newCard.save(data)) {
+            if (newCard.save(data, {
+              success: function(model) {
+                model.get('item_view').$el.attr('data-id', model.get('id'));
+              }
+            })) {
               cards.add(newCard);
               KanbanBoard.rootView.dialogRegion.empty();
             } else cardNewView.triggerMethod('form:data:invalid',
