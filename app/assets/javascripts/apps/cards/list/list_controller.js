@@ -27,6 +27,16 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
               model.validationError);
           });
 
+          cardEditView.on('card:delete', function(card) {
+            card.destroy({data: {
+                board_id: section.get('board_id'),
+                section_id: section.get('id')
+              },
+              processData: true
+            });
+            KanbanBoard.rootView.dialogRegion.empty();
+          });
+
           KanbanBoard.rootView.dialogRegion.show(cardEditView);
         });
 

@@ -25,6 +25,7 @@ html, body {
 
 body {
   padding-top: 40px;
+  overflow: hidden;
 }
 
 .vertical-center {
@@ -103,7 +104,7 @@ body {
 }
 
 .cards-region > div, .card-stack {
-  height: 100%;
+  height: calc(100% - 70px);
 }
 
 .card {

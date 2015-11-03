@@ -72,6 +72,10 @@ class CardsController < ApplicationController
   # DELETE /cards/1
   # DELETE /cards/1.json
   def destroy
+    @board = Board.find(params[:board_id])
+    @board.card_order[params[:section_id].to_i].delete(@card.id)
+    @board.save
+
     @card.destroy
     respond_to do |format|
       format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
