@@ -68,6 +68,10 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           self.trigger('card:reorder', ui.item.reorderData);
         }
       });
+
+      $('a').click(function(e) {
+        e.preventDefault();
+      });
     },
 
     onRenderCollection: function() {

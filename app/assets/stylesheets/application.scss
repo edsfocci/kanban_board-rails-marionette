@@ -140,27 +140,34 @@ body {
   border-left: 1px solid white;
 }
 
-.card .card-panel > div {
+.card .card-panel div {
   height: 49px;
-  /*background: #ff8888;*/
 }
 
-.card .card-panel > div:first-child {
+.card .card-panel a {
+  color: #333;
+}
+
+.card .card-panel a:hover {
+  color: #333;
+}
+
+.card .card-panel .assignee-btn {
   border-bottom: 1px solid white;
 }
 
-.card .card-panel div:nth-child(2) {
+.card .card-panel .edit-delete-btn {
   font-size: 25px;
   cursor: pointer;
 }
 
-.card .card-panel > div > div {
+.card .card-panel div > div {
   width: 35px;
   height: 35px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
 }
 
-.card .card-panel > div > div > span {
+.card .card-panel div > div > span {
   margin-top: 6px;
 }
