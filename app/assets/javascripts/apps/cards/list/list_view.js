@@ -51,6 +51,53 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
           ui.item.reorderData.origin.cardPos = $(this)
             .sortable('toArray', { attribute: 'data-id' })
             .indexOf(ui.item.reorderData.cardId.toString());
+
+          console.log($('html').height());
+        },
+
+        sort: function(e, ui) {
+          var scrollDownThreshold = $('html').height() - 31;
+          var scrollUpThreshold = 120;
+          console.log(e.pageY);
+
+          var originSectionId = ui.item.reorderData.origin.section;
+          var targetSectionId =
+            $(ui.placeholder).closest('.board-section').data('id');
+
+          if (originSectionId !== targetSectionId) {
+            if (e.pageY > scrollDownThreshold) {
+              var targetCardsRegion = $($('.board-section')[targetSectionId])
+                .children('.cards-region');
+
+              targetCardsRegion.scrollTop(targetCardsRegion.scrollTop()+20);
+
+            } else if (e.pageY < scrollUpThreshold) {
+              var targetCardsRegion = $($('.board-section')[targetSectionId])
+                .children('.cards-region');
+
+              targetCardsRegion.scrollTop(targetCardsRegion.scrollTop()-20);
+            }
+          }
+
+          var sectionWidth = $('.board-section').first().width();
+
+          if (e.pageX < sectionWidth * originSectionId ||
+            e.pageX > sectionWidth * (originSectionId+1)) {
+
+            if (e.pageY > scrollDownThreshold) {
+              var originCardsRegion = $($('.board-section')[originSectionId])
+                .children('.cards-region');
+
+              originCardsRegion.scrollTop(originCardsRegion.scrollTop()-20);
+
+            } else if (e.pageY < scrollUpThreshold) {
+              var originCardsRegion = $($('.board-section')[originSectionId])
+                .children('.cards-region');
+
+              originCardsRegion.scrollTop(originCardsRegion.scrollTop()+20);
+            }
+          }
+          // console.log(ui.offset);
         },
 
         update: function(e, ui) {
