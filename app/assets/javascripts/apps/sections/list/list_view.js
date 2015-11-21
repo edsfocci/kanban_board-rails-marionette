@@ -18,23 +18,6 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
     onBeforeShow: function() {
       this.trigger('card:addview', this.model);
       this.trigger('card:list', this.model);
-    },
-
-    events: {
-      'mousemove.element': 'mouseMoved'
-    },
-
-    mouseMoved: function(e) {
-      // // console.log(e);
-      // // console.log($(this).children());
-      // var id = this.model.get('id');
-      // var cardsRegion = $($('.board-section')[id]).children('.cards-region');
-      // var cardStack = $($('.board-section')[id]).find('.card-stack');
-      // // cardsRegion.scrollTop(cardsRegion.scrollTop()+1);
-      // console.log(cardStack.height());
-      // cardStack.height(0);
-      // console.log(cardStack.height());
-      // // cardStack.height(cardStack.height()+100);
     }
   });
 

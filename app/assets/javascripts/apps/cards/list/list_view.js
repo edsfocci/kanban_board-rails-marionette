@@ -43,22 +43,17 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
 
           ui.item.reorderData.cardId = $(ui.item).data('id');
 
-          // this.reorderData.origin.section =
-          //   $(ui.item).closest('.board-section').find('h1.text-center').html();
           ui.item.reorderData.origin.section =
             $(ui.item).closest('.board-section').data('id');
 
           ui.item.reorderData.origin.cardPos = $(this)
             .sortable('toArray', { attribute: 'data-id' })
             .indexOf(ui.item.reorderData.cardId.toString());
-
-          console.log($('html').height());
         },
 
         sort: function(e, ui) {
           var scrollDownThreshold = $('html').height() - 31;
           var scrollUpThreshold = 120;
-          console.log(e.pageY);
 
           var originSectionId = ui.item.reorderData.origin.section;
           var targetSectionId =
@@ -97,14 +92,11 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
               originCardsRegion.scrollTop(originCardsRegion.scrollTop()+20);
             }
           }
-          // console.log(ui.offset);
         },
 
         update: function(e, ui) {
           ui.item.reorderData.dest = {};
 
-          // this.reorderData.dest.section =
-          //   $(ui.item).closest('.board-section').find('h1.text-center').html();
           ui.item.reorderData.dest.section =
             $(ui.item).closest('.board-section').data('id');
 
