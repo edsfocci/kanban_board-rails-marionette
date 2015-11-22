@@ -25,6 +25,7 @@ function(New, KanbanBoard, Backbone, Mn, $, _) {
           })) {
             section.cards.add(newCard);
             KanbanBoard.rootView.dialogRegion.empty();
+
           } else cardNewView.triggerMethod('form:data:invalid',
             newCard.validationError);
         });

@@ -47,8 +47,6 @@ function(List, KanbanBoard, Backbone, Mn, $, _) {
         });
 
         sectionView.cardsRegion.show(cardsListView);
-        // KanbanBoard.SectionsApp.List.Controller
-        //   .cardsListViewAttach(cardsListView);
       });
     }
   };
