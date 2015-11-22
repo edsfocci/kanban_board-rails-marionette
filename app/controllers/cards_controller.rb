@@ -4,12 +4,13 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    # @cards = Card.where(board_id: params[:board_id])
+    cards = Card.where(board_id: params[:board_id]).order(:id)
 
     section = params[:section_id].to_i
     @cards = \
-    Board.find(params[:board_id]).card_order[section].map do |el|
-      Card.find(el)
+    Board.find(params[:board_id]).card_order[section].map do |id|
+      # http://stackoverflow.com/questions/23221965/ruby-2-0-0-arraybsearch-behavior
+      cards.bsearch { |card| id - card.id }
     end
 
     # @cards = Board.find(params[:board_id]).card_order.map do |arry|
